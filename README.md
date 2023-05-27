@@ -51,9 +51,19 @@ In this example, `PurposeView` is used to generate an onboarding screen with the
 
 Contributions to IntroKit are welcome and greatly appreciated! Please feel free to create a pull request or open an issue on this GitHub repository.
 
+## TODO
+
+[] Clean up code
+[] Further document code
+[] Screenshot generation
+[] Promotional material (image and video) generation
+[] Automatic app and promotional material localization via GPT
+
+
 ## License
 
 IntroKit is available under the MIT license. See the [LICENSE](https://github.com/YourGitHubUsername/IntroKit/LICENSE) file for more info. 
 
 ---
 Built with ❤️ using SwiftUI.
+
