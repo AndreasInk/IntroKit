@@ -23,6 +23,11 @@ You can add IntroKit to an Xcode project by adding it as a package dependency.
 2. Enter the following URL: https://github.com/AndreasInk/IntroKit.git
 3. Click **Next**. Specify the version details, then click **Next** again to add the package to your project.
 
+**Or** you can add IntroKit in your SPM package.swift file...
+```swift
+.package(url: "https://github.com/AndreasInk/IntroKit.git", .upToNextMajor(from: "1.0.0"))
+```
+
 ## Usage
 
 ```swift
