@@ -62,7 +62,7 @@ Contributions to IntroKit are welcome and greatly appreciated! Please feel free 
 
 ## License
 
-IntroKit is available under the MIT license. See the [LICENSE](https://github.com/YourGitHubUsername/IntroKit/LICENSE) file for more info. 
+IntroKit is available under the MIT license. See the [LICENSE](https://github.com/AndreasInk/IntroKit/blob/main/LICENSE) file for more info. 
 
 ---
 Built with ❤️ using SwiftUI.
