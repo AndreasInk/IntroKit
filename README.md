@@ -5,6 +5,8 @@
 
 IntroKit is a powerful and highly customizable SwiftUI framework designed to enhance the onboarding experience of your iOS applications. Inspired by the interactive onboarding experience of ChatGPT iOS, IntroKit enables developers to effortlessly deliver clear and engaging onboarding to their users, showcasing the key features and benefits of using their app.
 
+![IntroKit](https://github.com/AndreasInk/IntroKit/assets/67549402/6dad9a9c-25c7-4d21-a160-2f799f42c099)
+
 ## Features
 
 - Dynamic typing animation to focus on benifits of your app
