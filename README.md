@@ -53,11 +53,11 @@ Contributions to IntroKit are welcome and greatly appreciated! Please feel free 
 
 ## TODO
 
-[ ] Clean up code
-[ ] Further document code
-[ ] Screenshot generation
-[ ] Promotional material (image and video) generation
-[ ] Automatic app and promotional material localization via GPT
+- [ ] Clean up code
+- [ ] Further document code
+- [ ] Screenshot generation
+- [ ] Promotional material (image and video) generation
+- [ ] Automatic app and promotional material localization via GPT
 
 
 ## License
