@@ -9,6 +9,7 @@ import SwiftUI
 import CoreHaptics
 
 // https://www.hackingwithswift.com/books/ios-swiftui/making-vibrations-with-uinotificationfeedbackgenerator-and-core-haptics
+/// Handles haptics
 public class HapticManager: ObservableObject {
     public static let shared = HapticManager()
     @Published private var engine: CHHapticEngine?

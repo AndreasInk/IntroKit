@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Handles any persistant or cross view vars
 public class IntroViewModel: HapticManager {
     @Published var onboardingIndex = 0
     @AppStorage("reason") var reason = ""

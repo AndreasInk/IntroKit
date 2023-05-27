@@ -8,20 +8,29 @@
 import SwiftUI
 import CoreHaptics
 
+/// A view with a typing animation similar to ChatGPT iOS
 public struct PurposeView: View {
     @EnvironmentObject var vm: IntroViewModel
     @State var letters = [Letter]()
     @State var sentence = ""
     @StateObject private var engine = HapticManager.shared
     @FocusState var textFieldSelected: Bool
+    /// SF Symbol above the title ("figure.walk")
+    let icon: String
+    /// Title ("I walk to...")
+    let title: String
     /// Text that is typed by app, animates as it's typed
     let introText: [String]
     /// The call to action button's title
     let cta: String
+    /// If true this includes the icon and cta
     var isOnboarding = true
+    /// If true, exclude the textfield where users type why they do x (why they want to improve their health for a fitness app)
     var isPlain = false
     var input = ""
-    public init(introText: [String], cta: String, isOnboarding: Bool = true, isPlain: Bool = false, input: String = "") {
+    public init(icon: String, title: String, introText: [String], cta: String, isOnboarding: Bool = true, isPlain: Bool = false, input: String = "") {
+        self.icon = icon
+        self.title = title
         self.introText = introText
         self.cta = cta
         self.isOnboarding = isOnboarding
@@ -31,12 +40,12 @@ public struct PurposeView: View {
     public var body: some View {
         VStack(alignment: .leading) {
             if isOnboarding {
-                Image(systemName: "figure.walk")
+                Image(systemName: icon)
                     .font(.largeTitle)
                     .foregroundColor(.accentColor)
             }
             if !isPlain {
-                Text("I walk to..")
+                Text(title)
                     .font(.headline)
                     .padding(.vertical)
             }
@@ -85,7 +94,6 @@ public struct PurposeView: View {
             }
         }
         .task {
-            
             engine.prepareHaptics()
             if isOnboarding {
                 for text in introText {
@@ -125,7 +133,7 @@ public struct PurposeView: View {
 
 public struct PurposeView_Previews: PreviewProvider {
     public static var previews: some View {
-        PurposeView(introText: ["Live healthier", "Think clearer", "Dream deeper", "Feel happier"], cta: "Next")
+        PurposeView(icon: "figure.walk", title: "I walk to...", introText: ["Live healthier", "Think clearer", "Dream deeper", "Feel happier"], cta: "Next")
     }
 }
 public struct Letter: Identifiable {

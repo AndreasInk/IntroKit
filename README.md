@@ -7,8 +7,8 @@ IntroKit is a powerful and highly customizable SwiftUI framework designed to enh
 
 ## Features
 
-- Dynamic typing animation to focus on benifits of your app
-- Customizable text and call-to-action button
+- Dynamic typing animation to focus on benefits of your app
+- Customizable components
 - Adaptive for onboarding and plain states
 - Core Haptics integration
 - Utilizes SwiftUI's newest and most powerful features
@@ -28,8 +28,12 @@ import SwiftUI
 import IntroKit
 
 struct ContentView: View {
+    @StateObject var introViewModel = IntroViewModel()
     var body: some View {
-        PurposeView(introText: ["Live healthier", "Think clearer", "Dream deeper", "Feel happier"], cta: "Next")
+        PurposeView(icon: "figure.walk", title: "I walk to...",
+                    introText: ["Live healthier", "Think clearer", "Dream deeper", "Feel happier"],
+                    cta: "Next")
+            .environmentObject(introViewModel)
     }
 }
 ```
