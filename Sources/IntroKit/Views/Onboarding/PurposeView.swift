@@ -125,7 +125,7 @@ public struct PurposeView: View {
 
 public struct PurposeView_Previews: PreviewProvider {
     public static var previews: some View {
-        PurposeView(introText: ["Live healthier", "Think clearer", "Dream deeper", "Feel happier"], cta: "Next n")
+        PurposeView(introText: ["Live healthier", "Think clearer", "Dream deeper", "Feel happier"], cta: "Next")
     }
 }
 public struct Letter: Identifiable {
