@@ -1,6 +1,6 @@
 //
-//  SwiftUIView.swift
-//  
+//  PurposeView.swift
+//
 //
 //  Created by Andreas Ink on 5/21/23.
 //
@@ -106,6 +106,7 @@ public struct PurposeView<IconView: View, TitleView: View, CTAView: View>: View 
         for text in introText {
             await showTextAnimation(text)
         }
+        letters = []
         textFieldSelected = true
     }
 
