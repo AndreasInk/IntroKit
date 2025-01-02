@@ -9,10 +9,11 @@ import SwiftUI
 import CoreHaptics
 
 // https://www.hackingwithswift.com/books/ios-swiftui/making-vibrations-with-uinotificationfeedbackgenerator-and-core-haptics
-/// Handles haptics
+/// Handles haptics with dynamic intensity support
 public class HapticManager: ObservableObject {
     public static let shared = HapticManager()
     @Published private var engine: CHHapticEngine?
+
     public func prepareHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
 
@@ -20,27 +21,26 @@ public class HapticManager: ObservableObject {
             engine = try CHHapticEngine()
             try engine?.start()
         } catch {
-            print("There was an error creating the engine: \(error.localizedDescription)")
+            print("Error creating the engine: \(error.localizedDescription)")
         }
     }
-    public func complexSuccess() {
-        // make sure that the device supports haptics
+
+    /// Generate a haptic feedback based on given flexibility and intensity
+    public func generateHaptic(flexibility: CHHapticEvent.ParameterID, intensity: Float) {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
 
-        // create one intense, sharp tap
-        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
-        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
-        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+        let intensityParam = CHHapticEventParameter(parameterID: .hapticIntensity, value: intensity)
+        let sharpnessParam = CHHapticEventParameter(parameterID: flexibility, value: intensity)
+        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensityParam, sharpnessParam], relativeTime: 0)
         events.append(event)
 
-        // convert those events into a pattern and play it immediately
         do {
             let pattern = try CHHapticPattern(events: events, parameters: [])
             let player = try engine?.makePlayer(with: pattern)
             try player?.start(atTime: 0)
         } catch {
-            print("Failed to play pattern: \(error.localizedDescription).")
+            print("Failed to play haptic pattern: \(error.localizedDescription)")
         }
     }
 }
