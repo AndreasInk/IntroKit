@@ -80,12 +80,12 @@ public struct PurposeView<IconView: View, TitleView: View, CTAView: View>: View 
 
             if !sentence.isEmpty {
                 ctaView
-                    .onTapGesture {
+                    .simultaneousGesture(TapGesture().onEnded({ _ in
                         onSubmit(sentence)
                         sentence = ""
                         letters = []
                         generateRandomHaptic()
-                    }
+                    }))
                     .buttonStyle(.borderedProminent)
                     .transition(.opacity)
             }
